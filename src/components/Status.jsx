@@ -3,7 +3,7 @@ import React from 'react'
 const Status = ({title, status}) => {
   return (
     <>
-    <div className='border-[1px] border-solid border-gray smaller:h-[90px] h-[100px] md:h-[80px] w-[100%] lg:w-[40%] rounded-[3px] m-[5px]'>
+    <div className='border-[1px] border-solid border-gray smaller:h-[90px] h-[100px] md:h-[80px] w-[100%] lg:w-[40%] rounded-[3px] my-[5px] lg:mx-[5px]'>
        <div className="flex justify-between px-[10px] py-[10px]">
         <div className="flex flex-col mx-[5px]">
         <div className="flex flex-row ">

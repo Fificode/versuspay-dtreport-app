@@ -2,7 +2,11 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+       fontFamily: {
+        'roboto' : ['Roboto', 'sans-serif'],
+      },
+    },
      screens: {
       'large': { 'raw': '(max-width: 1050px)' },
       'medium': { 'raw': '(max-width: 768px)' },
@@ -17,7 +21,7 @@ module.exports = {
       '2xl': '1536px',
     },
      colors: {
-'blue' : '#1F51FF',
+'blue' : '#3f00ff',
 'white' : '#ffffff',
 'green': '#32CD32',
 'black': '#000000',
