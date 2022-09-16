@@ -1,17 +1,20 @@
 import React, {useState} from 'react'
 import Status from '../components/Status'
 import PastIncidents from '../components/PastIncidents'
+import logo from '../assets/versuspaylogo.svg'
 
 const Report = () => {
      const [pastIncidents, setPastIncidents] = useState(false);
+     const [showButton, setShowButton] = useState(true);
   const viewPastIncidents = () => {
-    setPastIncidents(prevState => !prevState);
+    setPastIncidents(true);
+    setShowButton(false);
   }
   return (
     <>
 <div className="">
       <div className="bg-blue h-[150px] flex justify-center items-center">
-            <img src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/896a831c-c732-4bd0-ad9e-584dabddfe6c/versuspay_new.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220911%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220911T002727Z&X-Amz-Expires=86400&X-Amz-Signature=65d085e131d3c0ea91159819f8b448d7e61673584078d7e023ef0bdfcc4ca733&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22versuspay%2520new.svg%22&x-id=GetObject" alt="Versus pay logo" className='w-[180px] h-[130px] p-3' />
+            <img src={logo} alt="Versus pay logo" className='w-[180px] h-[130px] p-3' />
         </div>
         <div className="px-[20px]">
         <div className="flex justify-center mt-[60px]">
@@ -42,16 +45,9 @@ const Report = () => {
           <Status title="Third Party Services" status="Normal"/>
           </div>
         </div>
-       {pastIncidents ? <div className="flex justify-end pb-[10px] px-[20px]">
-            <div className="">
-            <button className='px-[11px] py-[8px] bg-blue rounded-[5px] text-white font-[500] leading-[29px] tracking-[0.0015em] outline-none my-[10px]' onClick={viewPastIncidents}>Less Incident History</button>
-            </div>
-        </div> :
-        <div className="flex justify-end pb-[10px] px-[20px]">
-            <div className="">
-            <button className='px-[11px] py-[8px] bg-blue rounded-[5px] text-white font-[500] leading-[29px] tracking-[0.0015em] outline-none my-[10px]' onClick={viewPastIncidents}>View Incident History</button>
-            </div>
-        </div>}
+      <div className="flex ">
+      {showButton && <button className='px-[11px] py-[8px] bg-blue rounded-[5px] text-white font-[500] leading-[29px] tracking-[0.0015em] outline-none mx-[20px] my-[10px] flex self-end' onClick={viewPastIncidents}>View Incident History</button>} 
+      </div>
         <div className="">
         { pastIncidents ?  <PastIncidents/> : <div></div>}
         </div>
