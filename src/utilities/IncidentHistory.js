@@ -1,4 +1,4 @@
-export default  [
+export const incidentHistory =  [
   {
     "date": "Sep 16, 2022",
     "id": 1,

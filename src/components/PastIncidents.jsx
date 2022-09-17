@@ -1,21 +1,31 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useCallback} from 'react'
 // import FalseIncident from './FalseIncident'
 // import ResolvedIncident from './ResolvedIncident'
 import Incident from './Incident'
-import IncidentHistory from '../utilities/IncidentHistory'
+import {incidentHistory} from '../utilities/IncidentHistory'
 
 const PastIncidents = () => {
   const postsPerPage = 3;
-let arrayForHoldingPosts = [];
+
 
  const [postsToShow, setPostsToShow] = useState([]);
   const [next, setNext] = useState(3);
-
-  const loopWithSlice = (start, end) => {
-    const slicedPosts = IncidentHistory.slice(start, end);
+ const loopWithSlice = '';
+  useCallback(
+    
+     () => {
+    loopWithSlice = (start, end) => {
+        let arrayForHoldingPosts = [];
+    const slicedPosts = incidentHistory.slice(start, end);
     arrayForHoldingPosts = [...arrayForHoldingPosts, ...slicedPosts];
     setPostsToShow(arrayForHoldingPosts);
   };
+      
+    },
+    [],
+  )
+  
+  
 
   useEffect(() => {
     loopWithSlice(0, postsPerPage);
