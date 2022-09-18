@@ -6,10 +6,12 @@ import logo from '../../assets/versuspaylogo.svg'
 
 const DashboardNav = () => {
      const [nav, setNav] = useState(false);
+     const [activeNav, setActiveNav] = useState(0);
      const handleClick = () => setNav(!nav);
 
   return (
     <>
+    {/* Mobile Nav */}
     <div className="lg:hidden">
 <div className={ !nav ? 'fixed top-0 bg-blue h-[60px] w-[100%]' : 'fixed top-0 left-0 min-h-[100vh] w-[250px]'}>
     <nav className={ !nav ? 'hidden' : 'flex border-r  min-h-[100vh] w-[250px] pt-8 px-1  flex-col items-start justify-between bg-blue text-white'}>
@@ -17,9 +19,9 @@ const DashboardNav = () => {
             <div className="flex flex-col ">
       <div className="pl-[20px] mt-[-30px]"><img src={logo} alt="Logo" className='w-[100px] h-[100px] ' /></div>
     </div>
-     <div className='space-y-8 w-full'>
+     <div className='space-y-8 w-full animate-scale_up_tr '>
    {navLinks.map((link) => 
-          <NavItem link={link} key={link.id} />
+          <NavItem link={link} key={link.id} activeNav={activeNav} setActiveNav={setActiveNav}/>
         )}
         <div className="flex items-center space-x-8 px-5  cursor-pointer">
             <span> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -52,7 +54,7 @@ const DashboardNav = () => {
     </div>
      <div className='space-y-8 w-full'>
    {navLinks.map((link) => 
-          <NavItem link={link} key={link.id} />
+          <NavItem link={link} key={link.id} activeNav={activeNav} setActiveNav={setActiveNav} />
         )}
         <div className="flex items-center space-x-8 px-5  cursor-pointer">
             <span> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -70,8 +72,8 @@ const DashboardNav = () => {
     </div>
    </>
     )
-function NavItem({ link }) {
-  const [activeNav, setActiveNav] = useState(true);
+function NavItem({ link, activeNav, setActiveNav }) {
+  
   return (
     <Link to={link.path} onClick={() => setActiveNav(link.id)}
       key={link.id}

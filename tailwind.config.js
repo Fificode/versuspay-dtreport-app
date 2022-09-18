@@ -6,6 +6,17 @@ module.exports = {
        fontFamily: {
         'roboto' : ['Roboto', 'sans-serif'],
       },
+       keyframes:{
+        scale_up_tr:{
+          '0%' : { transform: 'scale(0.5)',
+        'transform-origin': '100% 0%'},
+'100%': {transform: 'scale(1)',
+'transform-origin': '100% 0%'},
+      }
+      },
+      animation: {
+scale_up_tr: 'scale_up_tr 0.45s cubic-bezier(0.390, 0.575, 0.565, 1.000) both',
+      },
     },
      screens: {
       'large': { 'raw': '(max-width: 1050px)' },
