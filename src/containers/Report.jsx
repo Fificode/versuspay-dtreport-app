@@ -21,7 +21,7 @@ const Report = () => {
         <div className="bg-green h-[50px] md:h-[60px] w-[98%] rounded-[5px] flex justify-start items-center">
             <div className="flex flex-row">
            <div className="flex items-center pl-[10px]">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="white" className="w-6 h-6">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="white" className="w-6 h-6">
   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
 </svg>
 </div> 
@@ -45,8 +45,10 @@ const Report = () => {
           <Status title="Third Party Services" status="Normal"/>
           </div>
         </div>
-      <div className="flex ">
-      {showButton && <button className='px-[11px] py-[8px] bg-blue rounded-[5px] text-white font-[500] leading-[29px] tracking-[0.0015em] outline-none mx-[20px] my-[10px] flex self-end' onClick={viewPastIncidents}>View Incident History</button>} 
+      <div className="flex justify-end">
+        <div>
+      {showButton && <button className='px-[11px] py-[8px] bg-blue rounded-[5px] text-white font-[500] leading-[29px] tracking-[0.0015em] outline-none mx-[20px] my-[10px]' onClick={viewPastIncidents}>View Incident History</button>}
+       </div>
       </div>
         <div className="">
         { pastIncidents ?  <PastIncidents/> : <div></div>}

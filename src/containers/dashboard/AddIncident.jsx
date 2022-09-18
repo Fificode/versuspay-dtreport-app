@@ -2,7 +2,7 @@ import React from 'react'
 
 const AddIncident = () => {
   return (
-    <div>AddIncident</div>
+    <div></div>
   )
 }
 

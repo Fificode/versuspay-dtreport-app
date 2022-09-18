@@ -2,7 +2,7 @@ import React , {useState} from 'react'
 import { Link } from 'react-router-dom';
 import { navLinks } from "../../utilities/NavDB";
 import {MenuIcon, XIcon} from '@heroicons/react/outline';
-
+import logo from '../../assets/versuspaylogo.svg'
 
 const DashboardNav = () => {
      const [nav, setNav] = useState(false);
@@ -10,19 +10,14 @@ const DashboardNav = () => {
 
   return (
     <>
-<div className='fixed top-0 left-0 min-h-[100vh] w-[250px]'>
-    <nav className={!nav ? 'hidden' : 'border-r  min-h-[100vh] w-[250px] pt-8 px-1 flex flex-col items-start justify-between bg-blue text-white' }>
+<div className={ !nav ? 'fixed top-0 bg-blue h-[60px] w-[100%]' : 'fixed top-0 left-0 min-h-[100vh] w-[250px]'}>
+    <nav className={ !nav ? 'hidden' : 'flex border-r  min-h-[100vh] w-[250px] pt-8 px-1  flex-col items-start justify-between bg-blue text-white'}>
         <div className="flex flex-col">
-            <div className="flex flex-col pl-[20px] xl:flex-row xl:pl-[30px] xl:-pb-[20px]">
-      <div className="pr-[8px]"><img src="" alt="Logo" className='w-[35px] h-[35px] xl:w-[50px] xl:h-[50px] rounded-[50%]' /></div>
+            <div className="flex flex-col ">
+      <div className="pl-[20px] mt-[-30px]"><img src={logo} alt="Logo" className='w-[100px] h-[100px] ' /></div>
     </div>
-             <div className="lg:hidden" onClick={handleClick}>
-    {!nav ? <MenuIcon className='w-10 text-blue m-2 absolute top-[20px] right-0' /> : <XIcon className='w-10 text-white m-2 absolute top-[20px] left-[200px]'/>}
-</div>
      <div className='space-y-8 w-full'>
-   
-       
-{navLinks.map((link) => 
+   {navLinks.map((link) => 
           <NavItem link={link} key={link.id} />
         )}
         <div className="flex items-center space-x-8 px-5  cursor-pointer">
@@ -38,6 +33,14 @@ const DashboardNav = () => {
     </nav>
     
     </div>
+   
+     {!nav && <div className="absolute top-[-20px] left-[4px] lg:hidden"><img src={logo} alt="Logo" className='w-[100px] h-[100px]' /></div>}
+   
+    
+             <div className="lg:hidden" onClick={handleClick}>
+    {!nav ? <MenuIcon className='w-10 text-white m-2 absolute top-[2px] right-0' /> : <XIcon className='w-9 text-white m-2 absolute top-[24px] left-[199px]'/>}
+</div>
+
    </>
     )
 function NavItem({ link }) {
