@@ -6,7 +6,7 @@ import logo from '../../assets/versuspaylogo.svg'
 
 const DashboardNav = () => {
      const [nav, setNav] = useState(false);
-     const [activeNav, setActiveNav] = useState('');
+     const [activeNav, setActiveNav] = useState(0);
      const handleClick = () => setNav(!nav);
 
   return (
@@ -21,7 +21,7 @@ const DashboardNav = () => {
     </div>
      <div className='space-y-8 w-full animate-scale_up_tr '>
    {navLinks.map((link) => 
-          <NavItem link={link} key={link.id} activeNav={activeNav} setActiveNav={setActiveNav}/>
+          <NavItem link={link} key={link.id} activeNav={activeNav} setActiveNav={setActiveNav} path={link.path}/>
         )}
         <div className="flex items-center space-x-8 px-5  cursor-pointer">
             <span> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -54,7 +54,7 @@ const DashboardNav = () => {
     </div>
      <div className='space-y-8 w-full'>
    {navLinks.map((link) => 
-          <NavItem link={link} key={link.id} activeNav={activeNav} setActiveNav={setActiveNav} />
+          <NavItem link={link} key={link.id} activeNav={activeNav} setActiveNav={setActiveNav} path={link.path} />
         )}
         <div className="flex items-center space-x-8 px-5  cursor-pointer">
             <span> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -72,15 +72,15 @@ const DashboardNav = () => {
     </div>
    </>
     )
-function NavItem({ link, activeNav, setActiveNav }) {
+function NavItem({ link, activeNav, setActiveNav, path }) {
   
   return (
-    <Link to={link.path} onClick={() => setActiveNav(link.id)}
+    <Link to={link.path} onClick={() => setActiveNav(path)}
       key={link.id}
       className={`w-full flex items-center justify-start space-x-8 px-5 cursor-pointer
        group hover:border-white hover:border-l-4 hover:border-transparent
        ${
-         activeNav === link.path && "border-white border-l-4"
+         activeNav === path && "border-white border-l-4"
        }
   `}
        >
@@ -89,7 +89,7 @@ function NavItem({ link, activeNav, setActiveNav }) {
       <h1
         className={`text-white group-hover:text-black 
         ${
-          activeNav === link.path && "text-black"
+          activeNav === path && "text-black"
         }
   `}
        >
