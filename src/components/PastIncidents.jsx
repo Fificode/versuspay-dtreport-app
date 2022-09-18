@@ -11,13 +11,13 @@ const PastIncidents = () => {
 const loopWithSlice = (start, end) => {
     let arrayForHoldingPosts = [];
     const slicedPosts = incidentHistory.slice(start, end);
-    arrayForHoldingPosts = [...arrayForHoldingPosts, ...slicedPosts];
+    arrayForHoldingPosts = [...postsToShow, ...slicedPosts];
     setPostsToShow(arrayForHoldingPosts);
   };
       
    useEffect(() => {
     loopWithSlice(0, postsPerPage);
-  }, []);
+  },[]);
 
   const handleShowMorePosts = () => {
     loopWithSlice(next, next + postsPerPage);

@@ -6,13 +6,13 @@ import logo from '../../assets/versuspaylogo.svg'
 
 const DashboardNav = () => {
      const [nav, setNav] = useState(false);
-     const [activeNav, setActiveNav] = useState(0);
+     const [activeNav, setActiveNav] = useState('');
      const handleClick = () => setNav(!nav);
 
   return (
     <>
     {/* Mobile Nav */}
-    <div className="lg:hidden">
+    <div className="md:hidden">
 <div className={ !nav ? 'fixed top-0 bg-blue h-[60px] w-[100%]' : 'fixed top-0 left-0 min-h-[100vh] w-[250px]'}>
     <nav className={ !nav ? 'hidden' : 'flex border-r  min-h-[100vh] w-[250px] pt-8 px-1  flex-col items-start justify-between bg-blue text-white'}>
         <div className="flex flex-col">
@@ -40,12 +40,12 @@ const DashboardNav = () => {
      {!nav && <div className="absolute top-[-20px] left-[4px] lg:hidden"><img src={logo} alt="Logo" className='w-[100px] h-[100px]' /></div>}
    
     
-             <div className="lg:hidden" onClick={handleClick}>
+             <div className="md:hidden" onClick={handleClick}>
     {!nav ? <MenuIcon className='w-10 text-white m-2 absolute top-[2px] right-0' /> : <XIcon className='w-9 text-white m-2 absolute top-[24px] left-[199px]'/>}
 </div>
 </div>
 {/* Desktop Nav */}
-<div className="hidden lg:block">
+<div className="hidden md:block">
 <div className='fixed top-0 left-0 min-h-[100vh] w-[250px]'>
     <nav className='flex border-r  min-h-[100vh] w-[250px] pt-8 px-1  flex-col items-start justify-between bg-blue text-white'>
         <div className="flex flex-col">
@@ -80,7 +80,7 @@ function NavItem({ link, activeNav, setActiveNav }) {
       className={`w-full flex items-center justify-start space-x-8 px-5 cursor-pointer
        group hover:border-white hover:border-l-4 hover:border-transparent
        ${
-         activeNav === link.id && "border-white border-l-4"
+         activeNav === link.path && "border-white border-l-4"
        }
   `}
        >
@@ -89,7 +89,7 @@ function NavItem({ link, activeNav, setActiveNav }) {
       <h1
         className={`text-white group-hover:text-black 
         ${
-          activeNav === link.id && "text-black"
+          activeNav === link.path && "text-black"
         }
   `}
        >
