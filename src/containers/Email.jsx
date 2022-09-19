@@ -4,10 +4,11 @@ const Email = () => {
   return (
     <>
 <mjml>
-  <mj-body>
+  <mj-body >
     <mj-section>
-      <mj-column>
+      <mj-column className="">
         {/* <!-- First column content --> */}
+        <div className="bg-blue h-[200px]"></div>
       </mj-column>
       <mj-column>
         {/* <!-- Second column content --> */}

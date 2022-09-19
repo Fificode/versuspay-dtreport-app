@@ -3,10 +3,13 @@ import { Link } from 'react-router-dom';
 import { navLinks } from "../../utilities/NavDB";
 import {MenuIcon, XIcon} from '@heroicons/react/outline';
 import logo from '../../assets/versuspaylogo.svg'
+import {useLocation} from 'react-router-dom';
 
 const DashboardNav = () => {
+  const location = useLocation();
+     const {pathname} = location;
      const [nav, setNav] = useState(false);
-     const [activeNav, setActiveNav] = useState(0);
+     const [activeNav, setActiveNav] = useState(pathname);
      const handleClick = () => setNav(!nav);
 
   return (

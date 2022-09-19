@@ -10,6 +10,7 @@ import ReportList from './containers/dashboard/ReportList';
 import RecipientList from './containers/dashboard/RecipientList';
 import ManageIncident from './containers/dashboard/ManageIncident';
 import ManageRecipient from './containers/dashboard/ManageRecipient';
+import Email from './containers/Email';
 
 function App() {
   return (
@@ -25,7 +26,10 @@ function App() {
  <Route path='/dashboard/recipientlist' element={<RecipientList/>}/>
  <Route path='/dashboard/manageincident' element={<ManageIncident/>}/>
  <Route path='/dashboard/managerecipient' element={<ManageRecipient/>}/>
+ <Route path='/dashboard/email' element={<Email/>}/>
   </Route>
+ 
+  
      </Routes>
     </Router>
   );
